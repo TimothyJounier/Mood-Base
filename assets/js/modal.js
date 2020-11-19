@@ -1,20 +1,3 @@
-//Appel de la fonction du panier : constitué de ligne panier (newLineShop), la ligne est dédié à un article choisi
-
-// function newLineShop(name, description, img, price, quantity, code, category) {
-//     this.nameArticle = name;
-//     this.codeArticle = code; 
-//     this.categoryArticle = category;
-//     this.descriptionArticle = description;
-//     this.imgArticle = img;
-//     this.priceArticle = price;
-//     this.quantityArticle = quantity;
-
-
-//     this.getCode = function(){
-//         return this.codeArticle;
-//     } 
-
-// }
 
 
 let refOfProduct = document.getElementById('refOfProduct');
