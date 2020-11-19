@@ -1,4 +1,4 @@
-
+let count = parseInt(number.innerText);
 
 let refOfProduct = document.getElementById('refOfProduct');
 refOfProduct
