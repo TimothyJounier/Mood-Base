@@ -1,23 +1,14 @@
-let i = 0;
 let original = document.querySelector('#card-product');
+ let products = document.getElementById('products')
 
-
-function clone() {
+function showProduct(element,index){
+    document.querySelector('#card-product .img-card').src = element.img
+    document.querySelector('#card-product .title-card').innerHTML = element.name
+    document.querySelector('#card-product .description-card').innerHTML = element.description
+    document.querySelector('#card-product .price-card').innerHTML = element.price
     let clone = original.cloneNode(true); //"deep" clone
-    clone.id = 'card-product' + i;
-    document.querySelector('.img-card').src = img
-    document.querySelector('.title-card').innerHTML = name
-    document.querySelector('.description-card').innerHTML = description
-    document.querySelector('.price-card').innerHTML = price
-    original.parentNode.appendChild(clone);
+    clone.id = 'card-product' + index;
+    products.appendChild(clone);
+}
 
-    i++;
-}
-function globalArray(element) {
-    clone(element)
-}
-let arrayButton = document.querySelector('.Phone');
-arrayButton.onclick = function (e) {
-    e.preventDefault();
-    // document.getElementById('cloneParent').innerHTML = '';
-    arrayUsers.forEach(globalArray)
+arrayProduct.forEach(showProduct)
