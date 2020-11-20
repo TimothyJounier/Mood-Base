@@ -2,23 +2,34 @@ let panier = [
     // Categorie charge base
 
     // Support 1
-    {name:"Wood Flow", ref: "r001", category: "Phone", price : "29.90", description : "Station de beau téléphone. Fait à la main à partir de bois d’orme recyclé magnifique. Ajouter une touche de nature à votre espace de travail ou à domicile avec une station de téléphone en bois naturel. ", img : "assets/img/Phone1"},
+    {
+        name: "Wood Flow",
+        ref: "r001",
+        category: "Phone",
+        price: "29.90",
+        description: "Station de beau téléphone. Fait à la main à partir de bois d’orme recyclé magnifique. Ajouter une touche de nature à votre espace de travail ou à domicile avec une station de téléphone en bois naturel. ",
+        img: "assets/img/Phone1"
+    },
 
     // Support 2
     // {name: "Wood magic", ref: "r002", category : "Phone", category : "Phone", price : "28.65", description : "Vous cherchez toujours vos câbles de recharge et ne savez jamais où mettre votre téléphone ? Voici la station Magic", img : "assets/img/Phone2"},
 ]
 let originalProduct = document.querySelector('cardModal');
 
-function showProductModal(element, index){
+function showProductModal(element, index) {
     document.querySelector('#card-product .img-card').src = element.img
-    document.querySelector('#card-product .title-card').innerHTML = element.name
-    document.querySelector('#card-product .price-card').innerHTML = element.price
-        }
-    
+    document.querySelector('#card-product .title-card').innerHTML = element.name;
+    document.querySelector('#card-product .price-card').innerHTML = element.price;
 
-        let productModal = document.querySelector('#shoppingModal .modal-body .cardModal').innerHTML = ref;
-        
-    
+    let clone = originalProduct.cloneNode(true); //"deep" clone
+    clone.id = 'cardModal' + index;
+    products.appendChild(clone);
+}
+arrayProduct.forEach(showProductModal);
+
+let productModal = document.querySelector('#shoppingModal .modal-body .cardModal').innerHTML = ref;
+
+
 
 
 
