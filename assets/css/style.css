@@ -37,3 +37,10 @@
     margin-left: 222px;
     margin-top: 25px ;
 }
+html,
+body {
+    height: 100%;
+    margin: 0;
+    
+}
+
