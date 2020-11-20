@@ -31,18 +31,19 @@
 
 
         <!-----Categories----->
+        <a href="#" class="btn btn-primary phone">Test</a>
         <div class="categorie-container">
-            <div class="row"></div>
+            <div class="row" id="products"></div>
         </div>
         <!--Carte-->
-        <div class="card" style="width: 18rem;">
-            <img src="assets/img/Phone/Phone1.jpg" class="card-img-top" alt="...">
+        <div class="card" id="card-product" style="width: 18rem;">
+            <img src="assets/img/Phone/Phone1.jpg" class="card-img-top img-card" alt="...">
             <div class="card-body">
-                <h2 class="card-title"></h2>
-                <p class="card-text"></p>
-                <h3 class="card-title"></h3>
+                <h2 class="card-title title-card"></h2>
+                <p class="card-text description-card"></p>
+                <h3 class="card-title price-card"></h3>
                 <!--Bouton qui ouvre la modale--->
-                <a href="#" class="btn btn-primary">Ajouter au panier</a>
+                <a href="#" class="btn btn-primary" data-id="">Ajouter au panier</a>
             </div>
         </div>
 
@@ -62,6 +63,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
     </script>
+    <script src="assets/js/dataBase.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
