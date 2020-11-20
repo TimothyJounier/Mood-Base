@@ -1,12 +1,17 @@
+//Création des variables pour le panier 
 let number = document.getElementById('count');
 let count = parseInt(number.innerText);
+
+
+//appel de la constante 
+const productCatalog = 'assets/js/data-base';
 
 let refOfProduct = document.getElementById('refOfProduct');
 refOfProduct
 
 panier = () => {
-    let list = [];
-    ajouterArticle = (ref) => {
+    let liste = [];
+    ajouterArticle = ref => {
         let index = getArticle(ref);
         if (index == -1) liste.push(new LignePanier(ref));
         else liste[index].ajouterQte(quantity);
@@ -17,7 +22,7 @@ panier = () => {
             total += liste[i].getPrixLigne();
         return total;
     }
-    getArticle = (ref) => {
+    getArticle = ref => {
         for (var i = 0; i < liste.length; i++)
             if (code == liste[i].getCode()) return i;
         return -1;
@@ -27,18 +32,15 @@ panier = () => {
         if (index > -1) liste.splice(index, 1);
     }
 }
-console.log(panier);
 
 
-
-
-// fonction reliée au bouton "+" du panier pour ajouter un article en plus  
-this.addQuantity = function(quantity) {
-    this.quantityArticle += quantity;
-}
 
 //Fonction qui donne le résultat du prix total de l'article [i]
-this.getPriceNewLineShop = function() {
+getPriceNewLineShop = () => {
     let result = this.priceArticle * this.quantityArticle;
     return result;
 }
+
+buttonAddMore = document.getElementById('addArticle');
+
+productModal = document.querySelector('#shoppingModal .modal-body').innerHTML=  buttonAddMore;
