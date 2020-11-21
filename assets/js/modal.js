@@ -1,12 +1,12 @@
 //Essaie 2 
 //Remplacer ici le .add-cart par l'id qui sera généré dans les cards 
-let carts = document.querySelectorAll('.add-cart');
+let carts = document.querySelectorAll('#card-product');
 
 let panier = [{
         name: "Wood Flow",
         ref: "r001",
         category: "Phone",
-        price: 29.90,
+        price: 30,
         description: "Station de beau téléphone. Fait à la main à partir de bois d’orme recyclé magnifique. Ajouter une touche de nature à votre espace de travail ou à domicile avec une station de téléphone en bois naturel. ",
         img: "assets/img/Phone1",
         inCart: 0
@@ -106,7 +106,47 @@ totalCost = (product) => {
         localStorage.setItem('totalCost', product.price);
     }
 }
+
+function displayCart() {
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    let productContainer = document.querySelector('.productsCart');
+
+
+    console.log(cartItems);
+    if (cartItems && productContainer) {
+        productContainer.innerHTML = '';
+        Object.values(cartItems).map(item => {
+            productContainer.innerHTML += `<div class="product-title-cart">
+                 <ion-icon name="close-circle-outline"></ion-icon>
+                 <img src="./img/${item.ref}.jpg">
+                 <span>${item.name}</span></div>
+                 <div class="price-cart">${item.price}</div>
+                 <div class="quantity-cart">
+                 <ion-icon name="caret-back-circle-outline"></ion-icon>
+                 <span>${item.inCart}</span>
+                 <ion-icon name="caret-forward-circle-outline"></ion-icon>
+                 </div>
+                 <div class="total-cart">
+                 ${item.inCart*item.price}€
+                 </div>
+                 `;
+        });
+
+        productContainer.innerHTML += `
+ <div class="basketTotalContainer">
+ <h4 class="basketTotalTitle">
+ Total panier
+ </h4> 
+ <h4 class="basketTotal"> 
+ ${cartCost}€
+ </h4></div>
+ `;
+
+    }
+}
 onLoadCartNumbers();
+displayCart();
 
 
 

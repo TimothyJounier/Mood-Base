@@ -4,3 +4,70 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.productContainer {
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.productContainer ion-icon {
+    font-size: 25px;
+    color: blue;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.product-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid lightgray;
+    margin: 0 auto;
+}
+
+.product-title-cart {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.price-cart {
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.quantity-cart {
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.total-cart {
+    width: 15%;
+    justify-content: space-around;
+}
+
+.productsCart {
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.basketTotalContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.basketTotalTitle {
+    width: 30%;
+}
+
+.basketTotal {
+    width: 10%;
+}
