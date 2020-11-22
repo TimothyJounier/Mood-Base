@@ -1,7 +1,7 @@
 let original = document.querySelector('#card-product');
- let products = document.getElementById('products')
+let products = document.getElementById('products')
 
-function showProduct(element,index){
+function showProduct(element, index) {
     document.querySelector('#card-product .img-card').src = element.img
     document.querySelector('#card-product .title-card').innerHTML = element.name
     document.querySelector('#card-product .description-card').innerHTML = element.description

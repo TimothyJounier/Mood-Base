@@ -1,11 +1,11 @@
 //Essaie 2 
-//Remplacer ici le .add-cart par l'id qui sera généré dans les cards 
+
 let carts = document.querySelectorAll('#card-product');
 
 for (let i = 0; i < carts.length; i++) {
     carts[i].addEventListener('click', () => {
         cartNumbers(arrayProduct[0]);
-        totalCost(arrayProduct[i])
+        totalCost(arrayProduct[i]);
     })
 }
 //fonction pour que le nombre de produit dans le panier reste à sa valeur enregistrée même après le refresh 
@@ -20,7 +20,7 @@ onLoadCartNumbers = () => {
     }
 }
 
-cartNumbers = (product) => {
+cartNumbers = (productDisplay) => {
 
     let productNumbers = localStorage.getItem('cartNumbers');
 
@@ -36,44 +36,40 @@ cartNumbers = (product) => {
         document.querySelector('.cart span').textContent = 1;
     }
 
-    setItem(product);
+    setItem(productDisplay);
 }
 
-setItem = (product) => {
+setItem = (productDisplay) => {
         let cartItems = localStorage.getItem('productsInCart')
         cartItems = JSON.parse(cartItems);
 
 
         if (cartItems != null) {
-            if (cartItems[product.ref] == undefined) {
+            if (cartItems[productDisplay.ref] == undefined) {
                 cartItems = {
                     ...cartItems,
-                    [product.ref]: product
+                    [productDisplay.ref]: productDisplay
                 }
             }
-            cartItems[product.ref].inCart += 1;
+            cartItems[productDisplay.ref].inCart += 1;
         } else {
-            product.inCart = 1;
+            productDisplay.inCart = 1;
             cartItems = {
-                [product.ref]: product
+                [productDisplay.ref]: productDisplay
             }
         }
         localStorage.setItem('productsInCart', JSON.stringify(cartItems));
     }
     //fonction pour calculer le montant total de cart
-totalCost = (product) => {
+totalCost = (productDisplay) => {
     // console.log('The product price is :', product.price);
     let cartCost = localStorage.getItem('totalCost');
 
-
-    console.log('My cartCost is', cartCost);
-    console.log(typeof cartCost);
-
     if (cartCost != null) {
         cartCost = parseInt(cartCost);
-        localStorage.setItem('totalCost', cartCost + product.price);
+        localStorage.setItem('totalCost', cartCost + productDisplay.price);
     } else {
-        localStorage.setItem('totalCost', product.price);
+        localStorage.setItem('totalCost', productDisplay.price);
     }
 }
 
@@ -88,30 +84,25 @@ function displayCart() {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `<div class="product-title-cart">
-                 <ion-icon name="close-circle-outline"></ion-icon>
-                 <img src="./img/${item.ref}.jpg">
+                 <ion-icon name="close-circle"></ion-icon>
+                 <img src="./img/{item.category}/${item.ref}.jpg">
                  <span>${item.name}</span></div>
                  <div class="price-cart">${item.price}</div>
                  <div class="quantity-cart">
-                 <ion-icon name="caret-back-circle-outline"></ion-icon>
+                 <ion-icon class="plus-item" name="caret-back-circle-outline"></ion-icon>
                  <span>${item.inCart}</span>
-                 <ion-icon name="caret-forward-circle-outline"></ion-icon>
+                 <ion-icon class="minus-item" name="caret-forward-circle-outline"></ion-icon>
                  </div>
                  <div class="total-cart">
-                 ${item.inCart*item.price}€
+                 ${item.inCart * item.price}€
                  </div>
                  `;
         });
-
-        productContainer.innerHTML +=
-            `
+        productContainer.innerHTML += `
  <div class="basketTotalContainer">
- <h4 class="basketTotalTitle">
- Total panier
- </h4> 
- <h4 class="basketTotal"> 
- ${cartCost}€
- </h4></div>
+ <h4 class="basketTotalTitle">Total panier</h4> 
+ <h4 class="basketTotal">${cartCost}€</h4>
+ </div>
  `;
 
     }
@@ -137,23 +128,9 @@ displayCart();
 
 
 
+
 // Essaie 1 
 
-// let panier = [
-
-// Support 1
-// {
-//     name: "Wood Flow",
-//     ref: "r001",
-//     category: "Phone",
-//     price: "29.90",
-//     description: "Station de beau téléphone. Fait à la main à partir de bois d’orme recyclé magnifique. Ajouter une touche de nature à votre espace de travail ou à domicile avec une station de téléphone en bois naturel. ",
-//     img: "assets/img/Phone1"
-// },
-
-// Support 2
-//     { name: "Wood magic", ref: "r002", category: "Phone", category: "Phone", price: "28.65", description: "Vous cherchez toujours vos câbles de recharge et ne savez jamais où mettre votre téléphone ? Voici la station Magic", img: "assets/img/Phone2" },
-// ]
 // let originalProduct = document.querySelector('cardModal');
 
 // function showProductModal(productsPanier) {
