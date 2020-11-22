@@ -7,6 +7,7 @@ function showProduct(element, index) {
     document.querySelector('#card-product .description-card').innerHTML = element.description
     document.querySelector('#card-product .price-card').innerHTML = element.price
     let clone = original.cloneNode(true); //"deep" clone
+
     clone.id = 'card-product' + index;
     products.appendChild(clone);
 }

@@ -1,10 +1,10 @@
 //Essaie 2 
 
-let carts = document.querySelectorAll('#card-product');
+let carts = document.querySelectorAll('#products .card');
 
 for (let i = 0; i < carts.length; i++) {
     carts[i].addEventListener('click', () => {
-        cartNumbers(arrayProduct[0]);
+        cartNumbers(arrayProduct[i]);
         totalCost(arrayProduct[i]);
     })
 }
@@ -85,15 +85,15 @@ function displayCart() {
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `<div class="product-title-cart">
                  <ion-icon name="close-circle"></ion-icon>
-                 <img src="./img/{item.category}/${item.ref}.jpg">
+                 <img src="${item.img}">
                  <span>${item.name}</span></div>
-                 <div class="price-cart">${item.price}</div>
+                 <div class="price">${item.price}€</div>
                  <div class="quantity-cart">
                  <ion-icon class="plus-item" name="caret-back-circle-outline"></ion-icon>
                  <span>${item.inCart}</span>
                  <ion-icon class="minus-item" name="caret-forward-circle-outline"></ion-icon>
                  </div>
-                 <div class="total-cart">
+                 <div class="total">
                  ${item.inCart * item.price}€
                  </div>
                  `;
@@ -101,7 +101,7 @@ function displayCart() {
         productContainer.innerHTML += `
  <div class="basketTotalContainer">
  <h4 class="basketTotalTitle">Total panier</h4> 
- <h4 class="basketTotal">${cartCost}€</h4>
+ <h4 class="basketTotal">{cartCost}€</h4>
  </div>
  `;
 
@@ -110,18 +110,31 @@ function displayCart() {
 onLoadCartNumbers();
 displayCart();
 
+// focntionnalité pouyr faire pour ou moins de produits dans le panier 
+let more = document.getElementById('addproduct');
+let less = document.getElementById('removeproduct');
+let number = document.getElementById('count');
+let count = parseInt(number.innerText)
+more.onclick = function(e) {
+    e.preventDefault
+    count = count + 1
+    number.innerText = count
+}
+less.onclick = function(e) {
+    e.preventDefault
+    count = count - 1
+    number.innerText = count
+}
 
 
+// a rajouter dans le productContainer à la place des classes plus-item & minus() 
+<
+div id = "addProduct" > < /div>
 
+span
 
-
-
-
-
-
-
-
-
+    <
+    div id = "removeProduct" > < /div>
 
 
 
@@ -145,19 +158,6 @@ displayCart();
 // arrayProduct.forEach(showProductModal);
 
 // let productModal = document.querySelector('#shoppingModal .modal-body .cardModal').innerHTML = ref;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

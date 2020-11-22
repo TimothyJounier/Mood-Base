@@ -51,6 +51,15 @@ body {
     margin: 0 auto;
 }
 
+.productsCart {
+    width: 100%;
+}
+
+.productsCart img {
+    width: 80%;
+    padding-left: 20%;
+}
+
 .productContainer ion-icon {
     font-size: 25px;
     color: blue;
@@ -61,6 +70,7 @@ body {
 
 .product-header {
     width: 100%;
+    max-width: 650px;
     display: flex;
     justify-content: flex-start;
     border-bottom: 2px solid lightgray;
@@ -82,6 +92,7 @@ body {
 .quantity-cart {
     width: 25%;
     display: flex;
+    border-bottom: 1px solid lightgray;
     align-items: center;
 }
 
@@ -92,7 +103,6 @@ body {
 
 .productsCart {
     width: 45%;
-    display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
