@@ -133,7 +133,8 @@ function displayCart() {
                  `;
         });
 
-        productContainer.innerHTML += `
+        productContainer.innerHTML +=
+            `
  <div class="basketTotalContainer">
  <h4 class="basketTotalTitle">
  Total panier
