@@ -110,31 +110,24 @@ function displayCart() {
 onLoadCartNumbers();
 displayCart();
 
-// focntionnalité pouyr faire pour ou moins de produits dans le panier 
-let more = document.getElementById('addproduct');
-let less = document.getElementById('removeproduct');
-let number = document.getElementById('count');
-let count = parseInt(number.innerText)
-more.onclick = function(e) {
-    e.preventDefault
-    count = count + 1
-    number.innerText = count
-}
-less.onclick = function(e) {
-    e.preventDefault
-    count = count - 1
-    number.innerText = count
-}
+// focntionnalité pour faire pour ou moins de produits dans le panier 
+// let more = document.getElementById('addproduct');
+// let less = document.getElementById('removeproduct');
+// let number = document.getElementById('count');
+// let count = parseInt(number.innerText)
+// more.onclick = function(e) {
+//     e.preventDefault
+//     count = count + 1
+//     number.innerText = count
+// }
+// less.onclick = function(e) {
+//     e.preventDefault
+//     count = count - 1
+//     number.innerText = count
+// }
 
 
-// a rajouter dans le productContainer à la place des classes plus-item & minus() 
-<
-div id = "addProduct" > < /div>
 
-span
-
-    <
-    div id = "removeProduct" > < /div>
 
 
 
