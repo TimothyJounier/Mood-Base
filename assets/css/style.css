@@ -4,6 +4,7 @@
     body {
         background: url(../img/fond.jpg) no-repeat;
         background-size: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -13,6 +14,7 @@
     body {
         background: url(../img/fond2.jpg) no-repeat;
         background-size: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -22,13 +24,13 @@
     body {
         background: url(../img/fond2.jpg) no-repeat;
         background-size: 100%;
+        box-sizing: border-box;
     }
 }
 
 #products {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 1%;
     margin-top: 3%;
     text-align: center;
   
@@ -50,6 +52,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+    box-sizing: border-box;
 }
 #card-product{
     display: none;
