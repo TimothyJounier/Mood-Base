@@ -111,7 +111,7 @@ function displayCart() {
                  <ion-icon class="addProduct" name="caret-forward-circle-outline"></ion-icon>
                  </div>
                  <div class="total">
-                 ${item.inCart * item.price.toFixed(1)}€
+                 ${item.inCart * item.price.toFixed(2)}€
                  </div>
                  `;
 
@@ -133,29 +133,6 @@ function displayCart() {
 onLoadCartNumbers();
 displayCart();
 
-<<<<<<< HEAD
-=======
-// focntionnalité pour faire pour ou moins de produits dans le panier 
-// let more = document.getElementById('addproduct');
-// let less = document.getElementById('removeproduct');
-// let number = document.getElementById('count');
-// let count = parseInt(number.innerText)
-// more.onclick = function(e) {
-//     e.preventDefault
-//     count = count + 1
-//     number.innerText = count
-// }
-// less.onclick = function(e) {
-//     e.preventDefault
-//     count = count - 1
-//     number.innerText = count
-// }
-
-
-
-
-
->>>>>>> a6154aff19d34ae6891a3e74209ecdd901d7d321
 
 
 
