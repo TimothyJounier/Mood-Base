@@ -102,21 +102,21 @@ function displayCart() {
                  </div>
                  `;
 
-                 let removeProductInCart = document.querySelector('removeProductInCart');
+                //  let removeProductInCart = document.querySelector('removeProductInCart');
                  let more = document.querySelector('.addProduct');
                  let less = document.querySelector('.removeProduct');
-                 let number = document.querySelector('.count');
+                 let number = document.querySelector('');
                  let count = parseInt(number.innerText)
                  more.onclick = function(e) {
                      e.preventDefault
-                     count = count + 1
-                     number.innerText = count;
+                     inCart = inCart + 1
+                     number.innerText = inCart;
 
                  }
                  less.onclick = function(e) {
                      e.preventDefault
-                     count = count - 1
-                     number.innerText = count
+                     inCart = inCart - 1
+                     number.innerText = inCart
                  }
                  
                   
