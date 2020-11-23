@@ -4,6 +4,7 @@
     body {
         background: url(../img/fond.jpg) no-repeat;
         background-size: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -13,6 +14,7 @@
     body {
         background: url(../img/fond2.jpg) no-repeat;
         background-size: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -22,21 +24,21 @@
     body {
         background: url(../img/fond2.jpg) no-repeat;
         background-size: 100%;
+        box-sizing: border-box;
     }
 }
 
 #products {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 1%;
     margin-top: 3%;
     text-align: center;
-  
+
 }
 
 .text-change {
     font-family: 'Poppins', sans-serif;
-    font-size: 30px;
+    font-size: 23px;
     color: white;
 }
 
@@ -50,12 +52,18 @@ html,
 body {
     height: 100%;
     margin: 0;
+    box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 
 #card-product{
+=======
+#card-product {
+>>>>>>> a6e0fa78e5b5d5886a1c65e43ca0a0495a1752df
     display: none;
 }
+
 .zoomIn {
     -webkit-animation-name: zoomIn;
     animation-name: zoomIn;
@@ -63,25 +71,59 @@ body {
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    }
-    @-webkit-keyframes zoomIn {
+}
+
+@-webkit-keyframes zoomIn {
     0% {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
     }
+
     50% {
-    opacity: 1;
+        opacity: 1;
     }
-    }
-    @keyframes zoomIn {
+}
+
+@keyframes zoomIn {
     0% {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
     }
+
     50% {
-    opacity: 1;
+        opacity: 1;
+    }
+}
+.slideInDown {
+    -webkit-animation-name: slideInDown;
+    animation-name: slideInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes slideInDown {
+    0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    }
+    }
+    @keyframes slideInDown {
+    0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    visibility: visible;
+    }
+    100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
     }
     } 
 /* CSS MODAL CART */
