@@ -80,20 +80,7 @@ function displayCart() {
     let productContainer = document.querySelector('.productsCart');
 
 
-    // let more = document.querySelectorAll('.addProduct');
-    // let less = document.querySelectorAll('.removeProduct');
-    // let number = document.querySelectorAll('.count');
-    // let count = parseInt(number.innerText)
-    // more.onclick = function(e) {
-    //     e.preventDefault
-    //     count = count + 1
-    //     number.innerText = count
-    // }
-    // less.onclick = function(e) {
-    //     e.preventDefault
-    //     count = count - 1
-    //     number.innerText = count
-    // }
+  
 
 
     console.log(cartItems);
@@ -101,7 +88,7 @@ function displayCart() {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `<div class="product-title-cart my-3 mx-2">
-                 <ion-icon name="close-circle"></ion-icon>
+                 <ion-icon class="removeProductInCart" name="close-circle"></ion-icon>
                  <img src="${item.img}"/>
                  <span>${item.name}</span></div>
                  <div class="price-cart">${item.price}€</div>
@@ -115,7 +102,23 @@ function displayCart() {
                  </div>
                  `;
 
- 
+                 let removeProductInCart = document.querySelector('removeProductInCart');
+                 let more = document.querySelector('.addProduct');
+                 let less = document.querySelector('.removeProduct');
+                 let number = document.querySelector('.count');
+                 let count = parseInt(number.innerText)
+                 more.onclick = function(e) {
+                     e.preventDefault
+                     count = count + 1
+                     number.innerText = count;
+
+                 }
+                 less.onclick = function(e) {
+                     e.preventDefault
+                     count = count - 1
+                     number.innerText = count
+                 }
+                 
                   
         });
        
@@ -134,7 +137,9 @@ onLoadCartNumbers();
 displayCart();
 
 
-
+// removeProductInCart.addEventListener('click', function() {
+    // removeProductInCart.removeChild(productsCart);
+//  })
 
 
 

@@ -1,4 +1,4 @@
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 2500px) {
 
     html,
     body {
@@ -92,7 +92,7 @@ body {
 }
 
 .productContainer ion-icon {
-    font-size: 25px;
+    font-size: 20px;
     color: blue;
     margin-left: 10px;
     margin-right: 10px;
