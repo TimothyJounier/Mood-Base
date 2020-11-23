@@ -38,7 +38,7 @@ cartNumbers = (productDisplay) => {
 
     setItem(productDisplay);
 }
-
+// Local storage
 setItem = (productDisplay) => {
         let cartItems = localStorage.getItem('productsInCart')
         cartItems = JSON.parse(cartItems);
@@ -73,62 +73,65 @@ totalCost = (productDisplay) => {
     }
 }
 
+
 function displayCart() {
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
     let productContainer = document.querySelector('.productsCart');
 
 
+    // let more = document.querySelectorAll('.addProduct');
+    // let less = document.querySelectorAll('.removeProduct');
+    // let number = document.querySelectorAll('.count');
+    // let count = parseInt(number.innerText)
+    // more.onclick = function(e) {
+    //     e.preventDefault
+    //     count = count + 1
+    //     number.innerText = count
+    // }
+    // less.onclick = function(e) {
+    //     e.preventDefault
+    //     count = count - 1
+    //     number.innerText = count
+    // }
+
+
     console.log(cartItems);
     if (cartItems && productContainer) {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
-            productContainer.innerHTML += `<div class="product-title-cart">
+            productContainer.innerHTML += `<div class="product-title-cart my-3 mx-2">
                  <ion-icon name="close-circle"></ion-icon>
-                 <img src="${item.img}">
+                 <img src="${item.img}"/>
                  <span>${item.name}</span></div>
-                 <div class="price">${item.price}€</div>
+                 <div class="price-cart">${item.price}€</div>
                  <div class="quantity-cart">
-                 <ion-icon class="plus-item" name="caret-back-circle-outline"></ion-icon>
-                 <span>${item.inCart}</span>
-                 <ion-icon class="minus-item" name="caret-forward-circle-outline"></ion-icon>
+                 <ion-icon class="removeProduct" name="caret-back-circle-outline"></ion-icon>
+                 <span class="count">${item.inCart}</span>
+                 <ion-icon class="addProduct" name="caret-forward-circle-outline"></ion-icon>
                  </div>
                  <div class="total">
-                 ${item.inCart * item.price}€
+                 ${item.inCart * item.price.toFixed(2)}€
                  </div>
                  `;
+
+ 
+                  
         });
+       
         productContainer.innerHTML += `
- <div class="basketTotalContainer">
- <h4 class="basketTotalTitle">Total panier</h4> 
- <h4 class="basketTotal">{cartCost}€</h4>
- </div>
- `;
+        <div class="basketTotalContainer">
+        <h4 class="basketTotalTitle">Total panier</h4> 
+        <h4 class="basketTotal">
+        ${cartCost}€</h4>
+        </div>
+        `;
+        
 
     }
 }
 onLoadCartNumbers();
 displayCart();
-
-// focntionnalité pour faire pour ou moins de produits dans le panier 
-// let more = document.getElementById('addproduct');
-// let less = document.getElementById('removeproduct');
-// let number = document.getElementById('count');
-// let count = parseInt(number.innerText)
-// more.onclick = function(e) {
-//     e.preventDefault
-//     count = count + 1
-//     number.innerText = count
-// }
-// less.onclick = function(e) {
-//     e.preventDefault
-//     count = count - 1
-//     number.innerText = count
-// }
-
-
-
-
 
 
 
