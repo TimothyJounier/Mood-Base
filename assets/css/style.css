@@ -33,7 +33,7 @@
     flex-wrap: wrap;
     margin-top: 3%;
     text-align: center;
-  
+
 }
 
 .text-change {
@@ -54,9 +54,11 @@ body {
     margin: 0;
     box-sizing: border-box;
 }
-#card-product{
+
+#card-product {
     display: none;
 }
+
 .zoomIn {
     -webkit-animation-name: zoomIn;
     animation-name: zoomIn;
@@ -64,27 +66,32 @@ body {
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    }
-    @-webkit-keyframes zoomIn {
+}
+
+@-webkit-keyframes zoomIn {
     0% {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
     }
+
     50% {
-    opacity: 1;
+        opacity: 1;
     }
-    }
-    @keyframes zoomIn {
+}
+
+@keyframes zoomIn {
     0% {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
     }
+
     50% {
-    opacity: 1;
+        opacity: 1;
     }
-    } 
+}
+
 /* CSS MODAL CART */
 
 .productContainer {
