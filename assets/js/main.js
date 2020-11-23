@@ -1,5 +1,26 @@
+// let original = document.querySelector('#card-product');
+// let products = document.getElementById('products')
+// let category = "Phone";
+// let arrayProductSelected = [];
+
+// function showProduct(element,index){
+//     document.querySelector('#card-product .img-card').src = element.img
+//     document.querySelector('#card-product .title-card').innerHTML = element.name
+//     document.querySelector('#card-product .description-card').innerHTML = element.description
+//     document.querySelector('#card-product .price-card').innerHTML = element.price
+//     let clone = original.cloneNode(true);
+//     clone.id = 'card-product' + index;
+//     products.appendChild(clone);
+// }
+
+// arrayProductSelected.forEach(showProduct);
+
 let original = document.querySelector('#card-product');
 let products = document.getElementById('products')
+<<<<<<< HEAD
+
+=======
+>>>>>>> 33f0d275194a5b258863626b9f9bfc202913c4e8
 
 function showProduct(element, index) {
     document.querySelector('#card-product .img-card').src = element.img
@@ -12,4 +33,9 @@ function showProduct(element, index) {
     products.appendChild(clone);
 }
 
+<<<<<<< HEAD
+arrayProduct.forEach(showProduct);
+
+=======
 arrayProduct.forEach(showProduct)
+>>>>>>> 33f0d275194a5b258863626b9f9bfc202913c4e8
