@@ -1,24 +1,140 @@
-let panier = [
-    // Categorie charge base
+//Essaie 2 
 
-    // Support 1
-    {name:"Wood Flow", ref: "r001", category: "Phone", price : "29.90", description : "Station de beau téléphone. Fait à la main à partir de bois d’orme recyclé magnifique. Ajouter une touche de nature à votre espace de travail ou à domicile avec une station de téléphone en bois naturel. ", img : "assets/img/Phone1"},
+let carts = document.querySelectorAll('#products .card');
 
-    // Support 2
-    // {name: "Wood magic", ref: "r002", category : "Phone", category : "Phone", price : "28.65", description : "Vous cherchez toujours vos câbles de recharge et ne savez jamais où mettre votre téléphone ? Voici la station Magic", img : "assets/img/Phone2"},
-]
-let originalProduct = document.querySelector('cardModal');
+for (let i = 0; i < carts.length; i++) {
+    carts[i].addEventListener('click', () => {
+        cartNumbers(arrayProduct[i]);
+        totalCost(arrayProduct[i]);
+    })
+}
+//fonction pour que le nombre de produit dans le panier reste à sa valeur enregistrée même après le refresh 
+onLoadCartNumbers = () => {
 
-function showProductModal(element, index){
-    document.querySelector('#card-product .img-card').src = element.img
-    document.querySelector('#card-product .title-card').innerHTML = element.name
-    document.querySelector('#card-product .price-card').innerHTML = element.price
+    //Lorqu'on lui passe le nom d'une clé, cette méthode renvoie la valeur de la clé correspondante.
+    let productNumbers = localStorage.getItem('cartNumbers');
+
+    //.cart correspond à la class du panier dans le barre nav ***** la span correspond au 0 à côté du panier
+    if (productNumbers) {
+        document.querySelector('.cart span').textContent = productNumbers;
+    }
+}
+
+cartNumbers = (productDisplay) => {
+
+    let productNumbers = localStorage.getItem('cartNumbers');
+
+    productNumbers = parseInt(productNumbers);
+
+    if (productNumbers) {
+        //Le localStorage va permettre d'accéder à un objet local Storage et donc au stockage de session. Ca va permettrere d'ajouter, de modifier ou de supprimer des éléments enregistrés 
+        localStorage.setItem('cartNumbers', productNumbers + 1);
+        //La méthode setItem() de l'interface Storage, lorsque lui sont passées le duo clé-valeur, les ajoute à l'emplacement de stockage, sinon elle met à jour la valeur si la clé existe déjà. Execption pour la nav privée
+        document.querySelector('.cart span').textContent = productNumbers + 1;
+    } else {
+        localStorage.setItem('cartNumbers', 1)
+        document.querySelector('.cart span').textContent = 1;
+    }
+
+    setItem(productDisplay);
+}
+
+setItem = (productDisplay) => {
+        let cartItems = localStorage.getItem('productsInCart')
+        cartItems = JSON.parse(cartItems);
+
+
+        if (cartItems != null) {
+            if (cartItems[productDisplay.ref] == undefined) {
+                cartItems = {
+                    ...cartItems,
+                    [productDisplay.ref]: productDisplay
+                }
+            }
+            cartItems[productDisplay.ref].inCart += 1;
+        } else {
+            productDisplay.inCart = 1;
+            cartItems = {
+                [productDisplay.ref]: productDisplay
+            }
         }
-    
+        localStorage.setItem('productsInCart', JSON.stringify(cartItems));
+    }
+    //fonction pour calculer le montant total de cart
+totalCost = (productDisplay) => {
+    // console.log('The product price is :', product.price);
+    let cartCost = localStorage.getItem('totalCost');
 
-        let productModal = document.querySelector('#shoppingModal .modal-body .cardModal').innerHTML = ref;
-        
-    
+    if (cartCost != null) {
+        cartCost = parseInt(cartCost);
+        localStorage.setItem('totalCost', cartCost + productDisplay.price);
+    } else {
+        localStorage.setItem('totalCost', productDisplay.price);
+    }
+}
+
+function displayCart() {
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+    let productContainer = document.querySelector('.productsCart');
+
+
+    console.log(cartItems);
+    if (cartItems && productContainer) {
+        productContainer.innerHTML = '';
+        Object.values(cartItems).map(item => {
+            productContainer.innerHTML += `<div class="product-title-cart">
+                 <ion-icon name="close-circle"></ion-icon>
+                 <img src="${item.img}">
+                 <span>${item.name}</span></div>
+                 <div class="price">${item.price}€</div>
+                 <div class="quantity-cart">
+                 <ion-icon class="plus-item" name="caret-back-circle-outline"></ion-icon>
+                 <span>${item.inCart}</span>
+                 <ion-icon class="minus-item" name="caret-forward-circle-outline"></ion-icon>
+                 </div>
+                 <div class="total">
+                 ${item.inCart * item.price}€
+                 </div>
+                 `;
+        });
+        productContainer.innerHTML += `
+ <div class="basketTotalContainer">
+ <h4 class="basketTotalTitle">Total panier</h4> 
+ <h4 class="basketTotal">{cartCost}€</h4>
+ </div>
+ `;
+
+    }
+}
+onLoadCartNumbers();
+displayCart();
+
+// focntionnalité pouyr faire pour ou moins de produits dans le panier 
+let more = document.getElementById('addproduct');
+let less = document.getElementById('removeproduct');
+let number = document.getElementById('count');
+let count = parseInt(number.innerText)
+more.onclick = function(e) {
+    e.preventDefault
+    count = count + 1
+    number.innerText = count
+}
+less.onclick = function(e) {
+    e.preventDefault
+    count = count - 1
+    number.innerText = count
+}
+
+
+// a rajouter dans le productContainer à la place des classes plus-item & minus() 
+<
+div id = "addProduct" > < /div>
+
+span
+
+    <
+    div id = "removeProduct" > < /div>
 
 
 
@@ -26,10 +142,22 @@ function showProductModal(element, index){
 
 
 
+// Essaie 1 
 
+// let originalProduct = document.querySelector('cardModal');
 
+// function showProductModal(productsPanier) {
+//     document.querySelector('#card-product .img-card').src = element.img
+//     document.querySelector('#card-product .title-card').innerHTML = element.name;
+//     document.querySelector('#card-product .price-card').innerHTML = element.price;
 
+//     let clone = originalProduct.cloneNode(true); //"deep" clone
+//     clone.id = 'cardModal' + index;
+//     products.appendChild(clone);
+// }
+// arrayProduct.forEach(showProductModal);
 
+// let productModal = document.querySelector('#shoppingModal .modal-body .cardModal').innerHTML = ref;
 
 
 
