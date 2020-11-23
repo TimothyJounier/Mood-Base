@@ -25,6 +25,15 @@
     }
 } */
 
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 1%;
+    margin-top: 3%;
+    text-align: center;
+  
+}
+
 .text-change {
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
@@ -51,21 +60,13 @@ body {
     margin: 0 auto;
 }
 
-.productsCart {
-    width: 100%;
-}
-
-.productsCart img {
-    width: 80%;
-    padding-left: 20%;
-}
-
 .productContainer ion-icon {
     font-size: 25px;
     color: blue;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
+
 }
 
 .product-header {
@@ -77,16 +78,34 @@ body {
     margin: 0 auto;
 }
 
+.productsCart {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.productsCart img {
+    width: 10%;
+    align-items: center;
+    padding-right: 2%;
+}
+
+
 .product-title-cart {
     width: 45%;
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid lightgray;
 }
+
+
 
 .price-cart {
     width: 15%;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid lightgray;
 }
 
 .quantity-cart {
@@ -94,23 +113,26 @@ body {
     display: flex;
     border-bottom: 1px solid lightgray;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .total-cart {
     width: 15%;
     justify-content: space-around;
+    border-bottom: 1px solid lightgray;
+}
 }
 
 .productsCart {
-    width: 45%;
-    justify-content: space-around;
+    width: 100%;
+    display: flex;
     align-items: center;
-    padding: 10px 0;
+
 }
 
 .basketTotalContainer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
     padding: 10px 0;
 }
