@@ -111,7 +111,7 @@ function displayCart() {
                  <ion-icon class="addProduct" name="caret-forward-circle-outline"></ion-icon>
                  </div>
                  <div class="total">
-                 ${item.inCart * item.price.toFixed(2)}€
+                 ${item.inCart * item.price}€
                  </div>
                  `;
 
@@ -122,7 +122,7 @@ function displayCart() {
         productContainer.innerHTML += `
         <div class="basketTotalContainer">
         <h4 class="basketTotalTitle">Total panier</h4> 
-        <h4 class="basketTotal">
+        <h4 class="basketTotal"> 
         ${cartCost}€</h4>
         </div>
         `;
