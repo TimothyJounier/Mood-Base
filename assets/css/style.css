@@ -68,7 +68,8 @@ body {
     box-sizing: border-box;
 }
 
-#card-product {
+
+#card-product{
     display: none;
 }
 
@@ -148,7 +149,7 @@ body {
 }
 
 .productContainer ion-icon {
-    font-size: 25px;
+    font-size: 20px;
     color: blue;
     margin-left: 10px;
     margin-right: 10px;

@@ -80,20 +80,7 @@ function displayCart() {
     let productContainer = document.querySelector('.productsCart');
 
 
-    // let more = document.querySelectorAll('.addProduct');
-    // let less = document.querySelectorAll('.removeProduct');
-    // let number = document.querySelectorAll('.count');
-    // let count = parseInt(number.innerText)
-    // more.onclick = function(e) {
-    //     e.preventDefault
-    //     count = count + 1
-    //     number.innerText = count
-    // }
-    // less.onclick = function(e) {
-    //     e.preventDefault
-    //     count = count - 1
-    //     number.innerText = count
-    // }
+  
 
 
     console.log(cartItems);
@@ -101,7 +88,7 @@ function displayCart() {
         productContainer.innerHTML = '';
         Object.values(cartItems).map(item => {
             productContainer.innerHTML += `<div class="product-title-cart my-3 mx-2">
-                 <ion-icon name="close-circle"></ion-icon>
+                 <ion-icon class="removeProductInCart" name="close-circle"></ion-icon>
                  <img src="${item.img}"/>
                  <span>${item.name}</span></div>
                  <div class="price-cart">${item.price}€</div>
@@ -111,18 +98,34 @@ function displayCart() {
                  <ion-icon class="addProduct" name="caret-forward-circle-outline"></ion-icon>
                  </div>
                  <div class="total">
-                 ${item.inCart * item.price.toFixed(2)}€
+                 ${item.inCart * item.price}€
                  </div>
                  `;
 
- 
+                //  let removeProductInCart = document.querySelector('removeProductInCart');
+                 let more = document.querySelector('.addProduct');
+                 let less = document.querySelector('.removeProduct');
+                 let number = document.querySelector('');
+                 let count = parseInt(number.innerText)
+                 more.onclick = function(e) {
+                     e.preventDefault
+                     inCart = inCart + 1
+                     number.innerText = inCart;
+
+                 }
+                 less.onclick = function(e) {
+                     e.preventDefault
+                     inCart = inCart - 1
+                     number.innerText = inCart
+                 }
+                 
                   
         });
        
         productContainer.innerHTML += `
         <div class="basketTotalContainer">
         <h4 class="basketTotalTitle">Total panier</h4> 
-        <h4 class="basketTotal">
+        <h4 class="basketTotal"> 
         ${cartCost}€</h4>
         </div>
         `;
@@ -134,7 +137,9 @@ onLoadCartNumbers();
 displayCart();
 
 
-
+// removeProductInCart.addEventListener('click', function() {
+    // removeProductInCart.removeChild(productsCart);
+//  })
 
 
 
