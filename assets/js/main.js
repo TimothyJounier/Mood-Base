@@ -1,3 +1,4 @@
+// Création de la fonction pour la carte
 let original = document.querySelector('#card-product');
 let products = document.getElementById('products')
 

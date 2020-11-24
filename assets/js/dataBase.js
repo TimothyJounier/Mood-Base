@@ -1,3 +1,6 @@
+// Catalogue des produits
+
+
 let arrayProduct = [
     // Categorie charge base
 
